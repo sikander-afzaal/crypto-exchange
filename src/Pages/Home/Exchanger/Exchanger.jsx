@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Exchanger.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBitcoin, faEthereum } from "@fortawesome/free-brands-svg-icons";
@@ -9,6 +9,36 @@ import {
   faQrcode,
 } from "@fortawesome/free-solid-svg-icons";
 function Exchanger() {
+  const [icon, setIcon] = useState(faBitcoin);
+  const [icon2, setIcon2] = useState(faEthereum);
+  const [name, setName] = useState("BTC");
+  const [name2, setName2] = useState("ETH");
+  const [color, setColor] = useState(false);
+  const [value, setValue] = useState("");
+  const [value2, setValue2] = useState("");
+  const handleArrows = () => {
+    const original = icon;
+    const original2 = icon2;
+    const originalName = name;
+    const originalName2 = name2;
+    setColor((prev) => !prev);
+    setIcon(original2);
+    setIcon2(original);
+    setName(originalName2);
+    setName2(originalName);
+  };
+  const handleChange = (e) => {
+    const rx_live = /^[+-]?\d*(?:[.,]\d*)?$/;
+    if (rx_live.test(e.target.value)) {
+      setValue((prev) => e.target.value);
+    }
+  };
+  const handleChange2 = (e) => {
+    const rx_live = /^[+-]?\d*(?:[.,]\d*)?$/;
+    if (rx_live.test(e.target.value)) {
+      setValue2((prev) => e.target.value);
+    }
+  };
   return (
     <div className="exchanger">
       <h1>WITHOUT A TRACE</h1>
@@ -19,34 +49,54 @@ function Exchanger() {
       </div>
       <div className="input-div">
         <div className="input1">
-          <div className="inputs orange">
-            <input placeholder="0.000" type="text" />
+          <div className={`inputs ${color ? "" : "orange"}`}>
+            <input
+              onChange={handleChange}
+              value={value}
+              placeholder="0.000"
+              type="text"
+            />
             <div className="drop-logo">
               <FontAwesomeIcon icon={faChevronDown} />
-              <p>BTC</p>
-              <FontAwesomeIcon icon={faBitcoin} />
+              <p>{name}</p>
+              <FontAwesomeIcon icon={icon} />
             </div>
           </div>
           <div className="desc-input">
             <p>max limit:</p>
-            <p>1 BTC ≈ 13.1924372 ETH</p>
+            <p>
+              1 {name} ≈ 13.1924372 {name2}
+            </p>
           </div>
         </div>
-        <div className="arrows">
-          <FontAwesomeIcon icon={faLongArrowRight} className="orange-svg" />
-          <FontAwesomeIcon icon={faLongArrowLeft} />
+        <div onClick={handleArrows} className="arrows">
+          <FontAwesomeIcon
+            icon={faLongArrowRight}
+            className={`${color ? "" : "orange-svg"} `}
+          />
+          <FontAwesomeIcon
+            icon={faLongArrowLeft}
+            className={`${color ? "orange-svg" : ""} `}
+          />
         </div>
         <div className="input1 input2">
-          <div className="inputs">
+          <div className={`inputs ${color ? "orange" : ""}`}>
             <div className="drop-logo">
-              <FontAwesomeIcon icon={faEthereum} />
-              <p>ETH</p>
+              <FontAwesomeIcon icon={icon2} />
+              <p>{name2}</p>
               <FontAwesomeIcon icon={faChevronDown} />
             </div>
-            <input placeholder="0.000" type="text" />
+            <input
+              onChange={handleChange2}
+              value={value2}
+              placeholder="0.000"
+              type="text"
+            />
           </div>
           <div className="desc-input">
-            <p>1 ETH ≈ 0.0750439 BTC</p>
+            <p>
+              1 {name2} ≈ 0.0750439 {name}
+            </p>
           </div>
         </div>
       </div>
