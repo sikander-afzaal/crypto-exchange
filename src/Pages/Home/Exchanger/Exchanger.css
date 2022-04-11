@@ -93,6 +93,7 @@
   flex: 0.2;
   font-size: 1.4rem;
   gap: 4px;
+  cursor: pointer;
 }
 .desc-input {
   display: flex;
