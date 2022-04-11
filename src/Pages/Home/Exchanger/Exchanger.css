@@ -1,0 +1,209 @@
+.exchanger {
+  min-height: 100vh;
+  background-image: url("../../../Assets/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+  gap: 3rem;
+}
+.exchanger h1 {
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+.row-exchange {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+.row-exchange p {
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0.5;
+  font-weight: 700;
+}
+.rate {
+  opacity: 0.7;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  border-bottom-style: dashed;
+}
+.input-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+.input1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  flex: 0.4;
+  gap: 5px;
+}
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+}
+.input2 input {
+  text-align: right;
+}
+.inputs input {
+  flex: 0.8;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.3rem;
+  padding: 10px 5px;
+}
+.inputs input::placeholder {
+  color: white;
+}
+.orange input::placeholder {
+  color: #f7931a;
+}
+.orange {
+  color: #f7931a;
+  border-bottom: 2px solid #f7931a;
+}
+
+.orange input,
+.orange-svg {
+  color: #f7931a;
+}
+.inputs input:focus,
+.input-div-address input:focus {
+  outline: none;
+}
+.drop-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.2;
+  font-size: 1.4rem;
+  gap: 4px;
+}
+.desc-input {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.desc-input p {
+  color: white;
+  opacity: 0.58;
+}
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 0.2;
+}
+.arrows svg {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.wrapper-bottom-exchange {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.input-div-address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.input-div-address input {
+  flex: 1;
+  /* padding: 5px 0px; */
+  border: none;
+  background-color: transparent;
+  font-size: 1.4rem;
+  color: white;
+  text-align: center;
+}
+.input-div-address input::placeholder {
+  color: white;
+  text-align: center;
+}
+.input-div-address svg {
+  font-size: 1.8rem;
+}
+.note {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.exchange {
+  background: rgba(124, 124, 124, 0.3);
+  width: 630px;
+  padding: 20px 0px;
+  color: white;
+  font-size: 1.8rem;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 1426px) {
+  .wrapper-bottom-exchange,
+  .input-div {
+    width: 80%;
+  }
+  .row-exchange {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .wrapper-bottom-exchange,
+  .input-div {
+    width: 95%;
+  }
+  .row-exchange {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 776px) {
+  .exchanger {
+    padding-top: 140px;
+    justify-content: flex-start;
+    padding-bottom: 2rem;
+  }
+  .input-div {
+    width: 90%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .exchange {
+    width: 90%;
+  }
+  .exchanger h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .row-exchange {
+    justify-content: space-between;
+  }
+  .row-exchange,
+  .wrapper-bottom-exchange {
+    width: 90%;
+  }
+}
