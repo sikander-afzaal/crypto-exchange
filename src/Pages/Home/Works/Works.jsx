@@ -2,7 +2,7 @@ import React from "react";
 import "./Works.css";
 function Works() {
   return (
-    <div className="works">
+    <div id="how" className="works">
       <h1>HOW IT WORKS</h1>
       <div className="box-div">
         <div className="box">

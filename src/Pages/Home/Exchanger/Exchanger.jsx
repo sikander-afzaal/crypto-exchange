@@ -8,6 +8,8 @@ import {
   faChevronDown,
   faQrcode,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
 function Exchanger() {
   const [icon, setIcon] = useState(faBitcoin);
   const [icon2, setIcon2] = useState(faEthereum);
@@ -114,7 +116,9 @@ function Exchanger() {
           not accepted.
         </p>
       </div>
-      <button className="exchange">EXCHANGE NOW</button>
+      <Link to={"/Order"} className="exchange">
+        EXCHANGE NOW
+      </Link>
     </div>
   );
 }

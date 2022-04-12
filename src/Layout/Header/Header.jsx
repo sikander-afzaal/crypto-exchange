@@ -2,24 +2,22 @@ import React, { useState } from "react";
 import "./Header.css";
 import logo from "../../Assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 function Header() {
   const [open, setOpen] = useState(false);
   return (
     <div className="header">
-      <img src={logo} alt="" className="logo" />
+      <Link to="/">
+        <img src={logo} alt="" className="logo" />
+      </Link>
+
       <div className={`right-nav ${open ? "open-nav" : ""}`}>
-        <a href="#" className="nav-links active">
+        <Link to="/" className="nav-links active">
           Home
-        </a>
-        <a href="#" className="nav-links">
+        </Link>
+        <a href="#how" className="nav-links">
           How it works
-        </a>
-        <a href="#" className="nav-links">
-          Blog
-        </a>
-        <a href="#" className="nav-links">
-          FAQ
         </a>
       </div>
       <FontAwesomeIcon
