@@ -26,6 +26,9 @@
   align-items: center;
   gap: 10px;
 }
+.pointer {
+  cursor: pointer;
+}
 .left-buy {
   display: flex;
   justify-content: center;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Order.css";
 import { faBitcoin, faEthereum } from "@fortawesome/free-brands-svg-icons";
 import { faLongArrowRight, faCopy } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +9,10 @@ import cloud from "../../Assets/cloud.svg";
 import timer from "../../Assets/timer.svg";
 import check from "../../Assets/check.svg";
 function Order() {
+  const [orderId, setOrderId] = useState("PFKUESZ");
+  const [address, setAddress] = useState(
+    "bsldwklj3e3ljedkl2ej2pe9309djsklajdw93fu09jsdlk "
+  );
   return (
     <div className="order">
       <div className="row-bought">
@@ -36,8 +40,11 @@ function Order() {
         <div className="left-checkout">
           <div className="data-div">
             <p>Order ID</p>
-            <h2>
-              PFKUESZ <FontAwesomeIcon className="copy" icon={faCopy} />
+            <h2
+              className="pointer"
+              onClick={() => navigator.clipboard.writeText(orderId)}
+            >
+              {orderId} <FontAwesomeIcon className="copy" icon={faCopy} />
             </h2>
           </div>
           <div className="data-div">
@@ -54,8 +61,11 @@ function Order() {
             <h2>
               Send <span className="orange-text">0.5 BTC</span> to the address:
             </h2>
-            <p>
-              bsldwklj3e3ljedkl2ej2pe9309djsklajdw93fu09jsdlk{" "}
+            <p
+              className="pointer"
+              onClick={() => navigator.clipboard.writeText(address)}
+            >
+              {address}
               <FontAwesomeIcon className="copy" icon={faCopy} />
             </p>
           </div>

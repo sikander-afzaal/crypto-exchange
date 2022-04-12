@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 function Header() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState([true, false]);
   return (
     <div className="header">
       <Link to="/">
@@ -13,10 +14,24 @@ function Header() {
       </Link>
 
       <div className={`right-nav ${open ? "open-nav" : ""}`}>
-        <Link to="/" className="nav-links active">
+        <Link
+          onClick={() => {
+            setOpen((prev) => !prev);
+            setActive([true, false]);
+          }}
+          to="/"
+          className={`nav-links ${active[0] ? "active" : ""}`}
+        >
           Home
         </Link>
-        <a href="#how" className="nav-links">
+        <a
+          onClick={() => {
+            setOpen((prev) => !prev);
+            setActive([false, true]);
+          }}
+          href="/#how"
+          className={`nav-links ${active[1] ? "active" : ""}`}
+        >
           How it works
         </a>
       </div>
