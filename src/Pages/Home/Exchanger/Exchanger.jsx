@@ -26,6 +26,8 @@ function Exchanger() {
   const [value2, setValue2] = useState("");
   const [search, setSearch] = useState(false);
   const [search2, setSearch2] = useState(false);
+  const [currency, setCurrency] = useState(13.1924372);
+  const [currency2, setCurrency2] = useState(0.0750439);
   const handleArrows = () => {
     const original = icon;
     const original2 = icon2;
@@ -54,22 +56,22 @@ function Exchanger() {
     }
   };
   const coins = [
-    { img: faBitcoin, name: "BTC" },
-    { img: faEthereum, name: "ETH" },
-    { img: faMonero, name: "XMR" },
-    { img: faLitecoinSign, name: "LTC" },
-    { img: faBitcoin, name: "BTC" },
-    { img: faEthereum, name: "ETH" },
-    { img: faMonero, name: "XMR" },
-    { img: faLitecoinSign, name: "LTC" },
-    { img: faBitcoin, name: "BTC" },
-    { img: faEthereum, name: "ETH" },
-    { img: faMonero, name: "XMR" },
-    { img: faLitecoinSign, name: "LTC" },
-    { img: faBitcoin, name: "BTC" },
-    { img: faEthereum, name: "ETH" },
-    { img: faMonero, name: "XMR" },
-    { img: faLitecoinSign, name: "LTC" },
+    { img: faBitcoin, name: "BTC", val: 2.99 },
+    { img: faEthereum, name: "ETH", val: 10.99 },
+    { img: faMonero, name: "XMR", val: 22.99 },
+    { img: faLitecoinSign, name: "LTC", val: 0.0099 },
+    { img: faBitcoin, name: "BTC", val: 2.99 },
+    { img: faEthereum, name: "ETH", val: 10.99 },
+    { img: faMonero, name: "XMR", val: 22.99 },
+    { img: faLitecoinSign, name: "LTC", val: 0.0099 },
+    { img: faBitcoin, name: "BTC", val: 2.99 },
+    { img: faEthereum, name: "ETH", val: 10.99 },
+    { img: faMonero, name: "XMR", val: 22.99 },
+    { img: faLitecoinSign, name: "LTC", val: 0.0099 },
+    { img: faBitcoin, name: "BTC", val: 2.99 },
+    { img: faEthereum, name: "ETH", val: 10.99 },
+    { img: faMonero, name: "XMR", val: 22.99 },
+    { img: faLitecoinSign, name: "LTC", val: 0.0099 },
   ];
   return (
     <div className="exchanger">
@@ -120,6 +122,7 @@ function Exchanger() {
                       setSearch(false);
                       setName(elem.name);
                       setIcon(elem.img);
+                      setCurrency(elem.val);
                     }}
                     className="dropdown-row"
                     key={index}
@@ -134,7 +137,7 @@ function Exchanger() {
           <div className="desc-input">
             <p>max limit:</p>
             <p>
-              1 {name} ≈ 13.1924372 {name2}
+              1 {name} ≈ {currency} {name2}
             </p>
           </div>
         </div>
@@ -188,6 +191,7 @@ function Exchanger() {
                       setSearch2(false);
                       setName2(elem.name);
                       setIcon2(elem.img);
+                      setCurrency2(elem.val);
                     }}
                     className="dropdown-row"
                     key={index}
@@ -201,7 +205,7 @@ function Exchanger() {
           </div>
           <div className="desc-input">
             <p>
-              1 {name2} ≈ 0.0750439 {name}
+              1 {name2} ≈ {currency2} {name}
             </p>
           </div>
         </div>
@@ -211,7 +215,7 @@ function Exchanger() {
           <input
             type="text"
             className="address"
-            placeholder="Your Ethereum Address"
+            placeholder={`Receiving Wallet (${name2}) Address`}
           />
           <FontAwesomeIcon icon={faQrcode} />
         </div>
