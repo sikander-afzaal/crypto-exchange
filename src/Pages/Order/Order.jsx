@@ -40,11 +40,13 @@ function Order() {
         <div className="left-checkout">
           <div className="data-div">
             <p>Order ID</p>
-            <h2
-              className="pointer"
-              onClick={() => navigator.clipboard.writeText(orderId)}
-            >
-              {orderId} <FontAwesomeIcon className="copy" icon={faCopy} />
+            <h2>
+              {orderId}
+              <FontAwesomeIcon
+                onClick={() => navigator.clipboard.writeText(orderId)}
+                className="copy pointer"
+                icon={faCopy}
+              />
             </h2>
           </div>
           <div className="data-div">
@@ -61,12 +63,13 @@ function Order() {
             <h2>
               Send <span className="orange-text">0.5 BTC</span> to the address:
             </h2>
-            <p
-              className="pointer"
-              onClick={() => navigator.clipboard.writeText(address)}
-            >
+            <p>
               {address}
-              <FontAwesomeIcon className="copy" icon={faCopy} />
+              <FontAwesomeIcon
+                onClick={() => navigator.clipboard.writeText(address)}
+                className="copy pointer"
+                icon={faCopy}
+              />
             </p>
           </div>
           <div className="part part2">
