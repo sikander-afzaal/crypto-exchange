@@ -71,7 +71,7 @@ function Exchanger() {
     { img: faBitcoin, name: "BTC", val: 2.99 },
     { img: faEthereum, name: "ETH", val: 10.99 },
     { img: faMonero, name: "XMR", val: 22.99 },
-    { img: faLitecoinSign, name: "LTC", val: 0.0099 },
+    { img: faLitecoinSign, name: "LTC", val: 8.0099 },
   ];
   return (
     <div className="exchanger">
