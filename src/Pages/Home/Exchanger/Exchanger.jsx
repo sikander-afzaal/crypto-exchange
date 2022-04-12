@@ -21,13 +21,13 @@ function Exchanger() {
   const [icon2, setIcon2] = useState(faEthereum);
   const [name, setName] = useState("BTC");
   const [name2, setName2] = useState("ETH");
-  const [color, setColor] = useState(false);
-  const [value, setValue] = useState("");
-  const [value2, setValue2] = useState("");
-  const [search, setSearch] = useState(false);
-  const [search2, setSearch2] = useState(false);
-  const [currency, setCurrency] = useState(13.1924372);
-  const [currency2, setCurrency2] = useState(0.0750439);
+  const [color, setColor] = useState(false); // color of the field
+  const [value, setValue] = useState(""); // value of the input fields
+  const [value2, setValue2] = useState(""); // value of the input fields
+  const [search, setSearch] = useState(false); //state for the input field placeholder
+  const [search2, setSearch2] = useState(false); //state for the input field placeholder
+  const [currency, setCurrency] = useState(13.1924372); // exchange rate state for left side
+  const [currency2, setCurrency2] = useState(0.0750439); // exchange rate state for right side
   const handleArrows = () => {
     const original = icon;
     const original2 = icon2;
@@ -78,7 +78,7 @@ function Exchanger() {
       <h1>WITHOUT A TRACE</h1>
       <div className="row-exchange">
         <p>SEND</p>
-        <p className="rate">$201.05</p>
+        <p className="rate">${value * 20}</p>
         <p>RECEIVE</p>
       </div>
       <div className="input-div">
