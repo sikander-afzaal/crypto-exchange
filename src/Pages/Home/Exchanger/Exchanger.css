@@ -56,6 +56,51 @@
   border-bottom: 2px solid white;
   padding-bottom: 2px;
   transition: all 0.4s ease-in-out;
+  position: relative;
+}
+.dropdown {
+  position: absolute;
+  bottom: 0;
+  height: 300px;
+  max-height: 300px;
+  left: 0;
+  background-color: #151e24;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow-y: scroll;
+  top: 100%;
+  z-index: 4;
+  display: none;
+}
+.dropdown-row {
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+}
+.open-drop {
+  display: flex;
+}
+.dropdown-row:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.dropdown-row p {
+  color: white;
+  margin-left: 20px;
+  font-size: 1.4rem;
+}
+.dropdown-row svg {
+  width: 30px;
+  color: white;
+  height: 30px;
 }
 .input2 input {
   text-align: right;
