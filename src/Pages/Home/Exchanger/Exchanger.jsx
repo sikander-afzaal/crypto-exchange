@@ -124,7 +124,7 @@ function Exchanger() {
                       setName(elem.name);
                       setIcon(elem.img);
                       setCurrency(elem.val);
-                      setDollar(Math.ceil(elem.val));
+                      setDollar(Math.ceil(elem.val * currency2));
                     }}
                     className="dropdown-row"
                     key={index}
@@ -194,7 +194,7 @@ function Exchanger() {
                       setName2(elem.name);
                       setIcon2(elem.img);
                       setCurrency2(elem.val);
-                      setDollar(Math.ceil(elem.val));
+                      setDollar(Math.ceil(elem.val * currency));
                     }}
                     className="dropdown-row"
                     key={index}
