@@ -78,7 +78,7 @@ function Exchanger() {
       <h1>WITHOUT A TRACE</h1>
       <div className="row-exchange">
         <p>SEND</p>
-        <p className="rate">${value * 20}</p>
+        <p className="rate">${currency * 20}</p>
         <p>RECEIVE</p>
       </div>
       <div className="input-div">
