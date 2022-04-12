@@ -28,6 +28,7 @@ function Exchanger() {
   const [search2, setSearch2] = useState(false); //state for the input field placeholder
   const [currency, setCurrency] = useState(13.1924372); // exchange rate state for left side
   const [currency2, setCurrency2] = useState(0.0750439); // exchange rate state for right side
+  const [dollar, setDollar] = useState(200); // dollar
   const handleArrows = () => {
     const original = icon;
     const original2 = icon2;
@@ -78,7 +79,7 @@ function Exchanger() {
       <h1>WITHOUT A TRACE</h1>
       <div className="row-exchange">
         <p>SEND</p>
-        <p className="rate">${Math.floor(currency * 20.82)}</p>
+        <p className="rate">${dollar}</p>
         <p>RECEIVE</p>
       </div>
       <div className="input-div">
@@ -123,6 +124,7 @@ function Exchanger() {
                       setName(elem.name);
                       setIcon(elem.img);
                       setCurrency(elem.val);
+                      setDollar(Math.ceil(elem.val));
                     }}
                     className="dropdown-row"
                     key={index}
@@ -192,6 +194,7 @@ function Exchanger() {
                       setName2(elem.name);
                       setIcon2(elem.img);
                       setCurrency2(elem.val);
+                      setDollar(Math.ceil(elem.val));
                     }}
                     className="dropdown-row"
                     key={index}
