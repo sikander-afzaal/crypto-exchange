@@ -14,6 +14,7 @@ import {
   faSearch,
   faLitecoinSign,
 } from "@fortawesome/free-solid-svg-icons";
+import vid from "../../../Assets/bg-vid.mp4";
 import { Link } from "react-router-dom";
 
 function Exchanger() {
@@ -75,161 +76,164 @@ function Exchanger() {
     { img: faLitecoinSign, name: "LTC", val: 8.0099 },
   ];
   return (
-    <div className="exchanger">
-      <h1>WITHOUT A TRACE</h1>
-      <div className="row-exchange">
-        <p>SEND</p>
-        <p className="rate">${dollar}</p>
-        <p>RECEIVE</p>
-      </div>
-      <div className="input-div">
-        <div className="input1">
-          <div className={`inputs ${color ? "" : "orange"}`}>
-            <input
-              onChange={handleChange}
-              value={value}
-              placeholder={` ${search ? "Search Currency" : "0.000"}`}
-              type="text"
-            />
-            {search ? (
-              <div
-                onClick={() => {
-                  setSearch((prev) => !prev);
-                  setValue("");
-                }}
-                className="drop-logo"
-              >
-                <FontAwesomeIcon icon={faSearch} />
-                <FontAwesomeIcon icon={faChevronDown} />
+    <div className="wrapper-bg">
+      <video className="bg" muted autoPlay loop src={vid}></video>
+      <div className="exchanger">
+        <h1>WITHOUT A TRACE</h1>
+        <div className="row-exchange">
+          <p>SEND</p>
+          <p className="rate">${dollar}</p>
+          <p>RECEIVE</p>
+        </div>
+        <div className="input-div">
+          <div className="input1">
+            <div className={`inputs ${color ? "" : "orange"}`}>
+              <input
+                onChange={handleChange}
+                value={value}
+                placeholder={` ${search ? "Search Currency" : "0.000"}`}
+                type="text"
+              />
+              {search ? (
+                <div
+                  onClick={() => {
+                    setSearch((prev) => !prev);
+                    setValue("");
+                  }}
+                  className="drop-logo"
+                >
+                  <FontAwesomeIcon icon={faSearch} />
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </div>
+              ) : (
+                <div
+                  onClick={() => {
+                    setSearch((prev) => !prev);
+                    setValue("");
+                  }}
+                  className="drop-logo"
+                >
+                  <FontAwesomeIcon icon={faChevronDown} />
+                  <p>{name}</p>
+                  <FontAwesomeIcon icon={icon} />
+                </div>
+              )}
+              <div className={`dropdown ${search ? "open-drop" : ""}`}>
+                {coins.map((elem, index) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        setSearch(false);
+                        setName(elem.name);
+                        setIcon(elem.img);
+                        setCurrency(elem.val);
+                        setDollar(Math.ceil(elem.val * 20.99));
+                      }}
+                      className="dropdown-row"
+                      key={index}
+                    >
+                      <FontAwesomeIcon icon={elem.img} />
+                      <p>{elem.name}</p>
+                    </div>
+                  );
+                })}
               </div>
-            ) : (
-              <div
-                onClick={() => {
-                  setSearch((prev) => !prev);
-                  setValue("");
-                }}
-                className="drop-logo"
-              >
-                <FontAwesomeIcon icon={faChevronDown} />
-                <p>{name}</p>
-                <FontAwesomeIcon icon={icon} />
-              </div>
-            )}
-            <div className={`dropdown ${search ? "open-drop" : ""}`}>
-              {coins.map((elem, index) => {
-                return (
-                  <div
-                    onClick={() => {
-                      setSearch(false);
-                      setName(elem.name);
-                      setIcon(elem.img);
-                      setCurrency(elem.val);
-                      setDollar(Math.ceil(elem.val * 20.99));
-                    }}
-                    className="dropdown-row"
-                    key={index}
-                  >
-                    <FontAwesomeIcon icon={elem.img} />
-                    <p>{elem.name}</p>
-                  </div>
-                );
-              })}
+            </div>
+            <div className="desc-input">
+              <p>max limit:</p>
+              <p>
+                1 {name} ≈ {currency} {name2}
+              </p>
             </div>
           </div>
-          <div className="desc-input">
-            <p>max limit:</p>
-            <p>
-              1 {name} ≈ {currency} {name2}
-            </p>
-          </div>
-        </div>
-        <div onClick={handleArrows} className="arrows">
-          <FontAwesomeIcon
-            icon={faLongArrowRight}
-            className={`${color ? "" : "orange-svg"} `}
-          />
-          <FontAwesomeIcon
-            icon={faLongArrowLeft}
-            className={`${color ? "orange-svg" : ""} `}
-          />
-        </div>
-        <div className="input1 input2">
-          <div className={`inputs ${color ? "orange" : ""}`}>
-            {search2 ? (
-              <div
-                onClick={() => {
-                  setSearch2((prev) => !prev);
-                  setValue2("");
-                }}
-                className="drop-logo"
-              >
-                <FontAwesomeIcon icon={faSearch} />
-                <FontAwesomeIcon icon={faChevronDown} />
-              </div>
-            ) : (
-              <div
-                onClick={() => {
-                  setSearch2((prev) => !prev);
-                  setValue2("");
-                }}
-                className="drop-logo"
-              >
-                <FontAwesomeIcon icon={icon2} />
-                <p>{name2}</p>
-                <FontAwesomeIcon icon={faChevronDown} />
-              </div>
-            )}
-            <input
-              onChange={handleChange2}
-              value={value2}
-              placeholder={` ${search2 ? "Search Currency" : "0.000"}`}
-              type="text"
+          <div onClick={handleArrows} className="arrows">
+            <FontAwesomeIcon
+              icon={faLongArrowRight}
+              className={`${color ? "" : "orange-svg"} `}
             />
-            <div className={`dropdown ${search2 ? "open-drop" : ""}`}>
-              {coins.map((elem, index) => {
-                return (
-                  <div
-                    onClick={() => {
-                      setSearch2(false);
-                      setName2(elem.name);
-                      setIcon2(elem.img);
-                      setCurrency2(elem.val);
-                      setDollar(Math.ceil(elem.val * 20.99));
-                    }}
-                    className="dropdown-row"
-                    key={index}
-                  >
-                    <FontAwesomeIcon icon={elem.img} />
-                    <p>{elem.name}</p>
-                  </div>
-                );
-              })}
+            <FontAwesomeIcon
+              icon={faLongArrowLeft}
+              className={`${color ? "orange-svg" : ""} `}
+            />
+          </div>
+          <div className="input1 input2">
+            <div className={`inputs ${color ? "orange" : ""}`}>
+              {search2 ? (
+                <div
+                  onClick={() => {
+                    setSearch2((prev) => !prev);
+                    setValue2("");
+                  }}
+                  className="drop-logo"
+                >
+                  <FontAwesomeIcon icon={faSearch} />
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </div>
+              ) : (
+                <div
+                  onClick={() => {
+                    setSearch2((prev) => !prev);
+                    setValue2("");
+                  }}
+                  className="drop-logo"
+                >
+                  <FontAwesomeIcon icon={icon2} />
+                  <p>{name2}</p>
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </div>
+              )}
+              <input
+                onChange={handleChange2}
+                value={value2}
+                placeholder={` ${search2 ? "Search Currency" : "0.000"}`}
+                type="text"
+              />
+              <div className={`dropdown ${search2 ? "open-drop" : ""}`}>
+                {coins.map((elem, index) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        setSearch2(false);
+                        setName2(elem.name);
+                        setIcon2(elem.img);
+                        setCurrency2(elem.val);
+                        setDollar(Math.ceil(elem.val * 20.99));
+                      }}
+                      className="dropdown-row"
+                      key={index}
+                    >
+                      <FontAwesomeIcon icon={elem.img} />
+                      <p>{elem.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="desc-input">
+              <p>
+                1 {name2} ≈ {currency2} {name}
+              </p>
             </div>
           </div>
-          <div className="desc-input">
-            <p>
-              1 {name2} ≈ {currency2} {name}
-            </p>
+        </div>
+        <div className="wrapper-bottom-exchange">
+          <div className="input-div-address">
+            <input
+              type="text"
+              className="address"
+              placeholder={`Receiving Wallet (${name2}) Address`}
+            />
+            <FontAwesomeIcon icon={faQrcode} />
           </div>
+          <p className="note">
+            *Only send from wallets. Transactions sent from a Smart Contract are
+            not accepted.
+          </p>
         </div>
+        <Link to={"/Order"} className="exchange">
+          EXCHANGE NOW
+        </Link>
       </div>
-      <div className="wrapper-bottom-exchange">
-        <div className="input-div-address">
-          <input
-            type="text"
-            className="address"
-            placeholder={`Receiving Wallet (${name2}) Address`}
-          />
-          <FontAwesomeIcon icon={faQrcode} />
-        </div>
-        <p className="note">
-          *Only send from wallets. Transactions sent from a Smart Contract are
-          not accepted.
-        </p>
-      </div>
-      <Link to={"/Order"} className="exchange">
-        EXCHANGE NOW
-      </Link>
     </div>
   );
 }
