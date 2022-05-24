@@ -24,16 +24,19 @@ function Header() {
         >
           Home
         </Link>
-        <a
+        <Link
           onClick={() => {
             setOpen((prev) => !prev);
             setActive([false, true]);
+            setTimeout(() => {
+              document.querySelector("#how").scrollIntoView();
+            }, 200);
           }}
-          href="/#how"
+          to="/"
           className={`nav-links ${active[1] ? "active" : ""}`}
         >
           How it works
-        </a>
+        </Link>
       </div>
       <FontAwesomeIcon
         onClick={() => setOpen((prev) => !prev)}

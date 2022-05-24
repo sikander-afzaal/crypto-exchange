@@ -230,7 +230,13 @@ function Exchanger() {
             not accepted.
           </p>
         </div>
-        <Link to={"/Order"} className="exchange">
+        <Link
+          onClick={() => {
+            document.querySelector(".active").classList.remove("active");
+          }}
+          to={"/Order"}
+          className="exchange"
+        >
           EXCHANGE NOW
         </Link>
       </div>
