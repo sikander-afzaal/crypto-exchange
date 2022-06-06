@@ -54,7 +54,7 @@
     padding-left: 2rem;
   }
 }
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 918px) {
   .header {
     overflow-x: hidden;
     z-index: 2;

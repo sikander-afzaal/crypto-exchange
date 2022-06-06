@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 function Header() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState([true, false]);
+  const [active, setActive] = useState([true, false, false]);
   return (
     <div className="header">
       <Link to="/">
@@ -17,7 +17,7 @@ function Header() {
         <Link
           onClick={() => {
             setOpen((prev) => !prev);
-            setActive([true, false]);
+            setActive([true, false, false]);
           }}
           to="/"
           className={`nav-links ${active[0] ? "active" : ""}`}
@@ -27,7 +27,7 @@ function Header() {
         <Link
           onClick={() => {
             setOpen((prev) => !prev);
-            setActive([false, true]);
+            setActive([false, true, false]);
             setTimeout(() => {
               document.querySelector("#how").scrollIntoView();
             }, 200);
@@ -36,6 +36,26 @@ function Header() {
           className={`nav-links ${active[1] ? "active" : ""}`}
         >
           How it works
+        </Link>
+
+        <a href="#" className="nav-links">
+          Whitepaper
+        </a>
+        <a href="#" className="nav-links">
+          Buy $POOF{" "}
+        </a>
+        <Link
+          onClick={() => {
+            setOpen((prev) => !prev);
+            setActive([false, false, true]);
+            setTimeout(() => {
+              document.querySelector("#how").scrollIntoView();
+            }, 200);
+          }}
+          to="/Staking"
+          className={`nav-links ${active[2] ? "active" : ""}`}
+        >
+          Staking
         </Link>
       </div>
       <FontAwesomeIcon
