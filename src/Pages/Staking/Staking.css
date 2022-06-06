@@ -1,5 +1,5 @@
 .staking {
-  padding-top: 140px;
+  padding-top: 120px;
   min-height: 100vh;
   background-image: url("../../Assets/bg.png");
   background-repeat: no-repeat;
@@ -9,7 +9,25 @@
   align-items: center;
   width: 100%;
   gap: 3rem;
+  padding-bottom: 2rem;
   flex-direction: column;
+  position: relative;
+}
+.connect {
+  align-self: flex-end;
+  margin-right: 3rem;
+  width: 250px;
+  height: 50px;
+  background: rgba(124, 124, 124, 0.3);
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  text-decoration: none;
 }
 .top-staking {
   display: flex;
@@ -73,7 +91,8 @@
   text-decoration: none;
 }
 .stake-box button:hover,
-.approve:hover {
+.approve:hover,
+.connect:hover {
   background-color: black;
 }
 .staking-input {
@@ -127,7 +146,78 @@
   cursor: pointer;
   transition: all 0.4s ease-in-out;
   text-decoration: none;
+  text-transform: uppercase;
 }
+.bottom-staking {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  background: rgba(124, 124, 124, 0.3);
+  border: 1px solid white;
+  gap: 20px;
+  border-radius: 10px;
+}
+.bottom-staking .stake-box {
+  width: 300px;
+  padding: 10px;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  display: none;
+}
+
+.pop-up {
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  z-index: 52;
+  transform: translate(-50%, -50%);
+  background-color: #252525 !important;
+  border-radius: 20px !important;
+  border: 1px solid #555 !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  padding: 10px;
+  gap: 10px;
+  height: 332px;
+}
+.pop {
+  flex: 0.5;
+  background: rgba(124, 124, 124, 0.3);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  width: 100%;
+  gap: 20px;
+  cursor: pointer;
+}
+.pop img {
+  max-width: 100%;
+  width: 50px;
+  object-fit: contain;
+}
+.pop h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.display-flex {
+  display: flex;
+}
+
 @media screen and (max-width: 1220px) {
   .top-staking {
     width: 95%;
@@ -139,6 +229,9 @@
 @media screen and (max-width: 786px) {
   .stake-box p {
     font-size: 1.1rem !important;
+  }
+  .bottom-staking {
+    width: 95%;
   }
 }
 @media screen and (max-width: 690px) {
